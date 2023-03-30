@@ -1,6 +1,6 @@
 @import "mixin";
 @import "var";
-//Parent tags
+//Main
 *{
     font-style: sans-serif;
     margin: 0;
@@ -48,12 +48,29 @@ body{
     height: 140px;
 }
 //Main section
+
+//Recent posts
+.main_title{
+    margin-top: 70px;
+    margin-bottom: 25px;
+    .post_title{
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22px;
+        color: #4E4E4E;               
+    }
+}
 .our_posts_wrapper{
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
 }
 .post{
+    flex: 50%;
     display: flex;
     &_text_container{
+        padding-left: 20px;
         .post_title{
             font-family: Roboto;
             font-size: 16px;
@@ -75,6 +92,110 @@ body{
             line-height: 26px;
             color: #5c5c5c;            
         }
+    }
+}
+//Instagram Shots
+.instagram_bg_holder{
+    background: rgba(0, 0, 0, 0.03);
+}
+.instagram_posts_wrapper{
+    display: flex;
+    flex-direction: column;
+    .instagram_title_wrapper{
+        margin-top: 50px;
+        margin-bottom: 25px;
+        display: flex;
+        gap: 65%;
+        p{
+            color: #4E4E4E;
+        }
+        .instagram_title{
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 22px;
+        }
+        .instagram_subtitle{
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 22px;
+        }
+    }
+    .instagram_image_wrapper{
+        display: flex;
+        gap: 10px;
+        margin-bottom: 60px;
+    }
+    .instagram_post{
+        &_img{
+            width: 285px;
+            height: 285px;
+        }
+    }
+}
+//Footer
+footer{
+    background: black;
+}
+.footer_content_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    .footer_title{
+        margin-top: 60px;
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22px;
+        color: white;
+    }
+    .footer_subtitle{
+        max-width: 685px;
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 28px;
+        color: #B9B9B9;
+    }
+    .social_icons_wrapper{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        display: flex;
+        gap: 7px;
+        .social_icon{
+            border: 2px solid white;
+            border-radius: 40px;
+            &_1{
+                padding: 13px 14px;
+                border-color: #F8902E;
+            }
+            &_2{
+                padding: 12px 17px;
+                border-color: #39599F;
+            }
+            &_3{
+                padding: 12px 14px;
+                border-color: #45B0E3;
+            }
+            &_4{
+                padding: 12px 12px;
+                border-color: #D97AB0;
+            }
+            &_5{
+                padding: 12px 14px;
+                border-color: #CC212C;
+            }
+        }
+    }
+    .footer_bottom_text{
+        margin-bottom: 60px;
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        color: #B9B9B9;
     }
 }
 //Adaptive
