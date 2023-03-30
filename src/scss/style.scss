@@ -1,0 +1,77 @@
+@import "mixin";
+@import "var";
+//Parent tags
+*{
+    font-style: sans-serif;
+    margin: 0;
+    padding: 0;  
+    box-sizing: border-box;
+}
+body{
+    max-width: 100%;
+}
+.container{
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 10px
+}
+//Navigation top
+.navbar{
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+	list-style: none;
+    &_item{
+        &_link{
+            font-family: Roboto;
+            font-size: 11px;
+            font-weight: 400;
+            line-height: 22px;
+            text-decoration: none;
+            color: #4E4E4E;
+            transition-duration: 0.5s;
+        }
+        &_link:hover{
+            cursor: pointer;
+            color: #57A4A4;
+        }
+    }
+}
+//Images
+.header_img{
+ max-width: 1170px;
+ margin: 0 auto;
+}
+.post_img{
+    
+}
+//Main section
+.main_title{
+    width: 70%;
+    margin: 0 auto;
+}
+.our_posts{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.post{
+    display: flex;
+    flex-direction: row;
+}
+.post_text_container{
+   @include flex_centre;
+   flex-direction: column;
+   text-align: center;
+}
+
+//Adaptive
+@media (max-width: 1200px) {
+    
+}
+@media (max-width: 768px) {
+    
+}
+@media (max-width: 320px) {
+    
+}
