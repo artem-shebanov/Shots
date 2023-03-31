@@ -2,7 +2,7 @@
 @import "var";
 //Main
 *{
-    font-style: sans-serif;
+    font-family: sans-serif;
     margin: 0;
     padding: 0;  
     box-sizing: border-box;
@@ -11,12 +11,18 @@ body{
     max-width: 100%;
 }
 .container{
+    position: relative;
     margin: 0 auto;
     max-width: 1200px;
     padding: 0 10px
 }
 //Navigation top
+.header_bg_holder{
+    position: relative;
+}
 .navbar{
+    max-width: 100%;
+    white-space: nowrap;
     margin: 45px auto;
     display: flex;
     justify-content:center;
@@ -38,17 +44,36 @@ body{
         }
     }
 }
+.burger_menu{
+    width: 45px;
+    height: 40px;
+    background: black;
+    position: absolute;
+    right: 0;
+    top: -55px;
+	display: none;
+    justify-content: center;
+    align-items: center;
+	flex-direction: column;
+	gap: 7px;
+	.line{
+		width: 25px;
+		height: 2px;
+		background: #FFFFFF;
+		border: 1px solid #FFFFFF;
+		border-radius: 20px;
+		transition-duration: 0.3s;
+	}
+}
 //Images
 .header_img{
-    max-width: 1170px;
+    max-width: 100%;
     margin: 0 auto;
 }
 .post_img{
     width: 160px;
     height: 140px;
 }
-//Main section
-
 //Recent posts
 .main_title{
     margin-top: 70px;
@@ -65,8 +90,11 @@ body{
     display: flex;
     flex-wrap: wrap;
     row-gap: 30px;
+    column-gap: 30px;
+    margin-bottom: 70px;
 }
 .post{
+    max-width: 555px;
     flex: 50%;
     display: flex;
     &_text_container{
@@ -86,6 +114,7 @@ body{
             color: #7c7c7c;
         }
         .post_text{
+            max-width: 405px;
             font-family: Roboto;
             font-size: 14px;
             font-weight: 400;
@@ -97,25 +126,30 @@ body{
 //Instagram Shots
 .instagram_bg_holder{
     background: rgba(0, 0, 0, 0.03);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .instagram_posts_wrapper{
     display: flex;
     flex-direction: column;
+    padding-top: 95px;
     .instagram_title_wrapper{
-        margin-top: 50px;
         margin-bottom: 25px;
         display: flex;
-        gap: 65%;
+        justify-content:space-between;
         p{
             color: #4E4E4E;
         }
         .instagram_title{
+            min-width: 220px;
             font-family: Roboto;
             font-size: 16px;
             font-weight: 700;
             line-height: 22px;
         }
         .instagram_subtitle{
+            min-width: 220px;
             font-family: Roboto;
             font-size: 13px;
             font-weight: 700;
@@ -129,8 +163,8 @@ body{
     }
     .instagram_post{
         &_img{
-            width: 285px;
-            height: 285px;
+            max-width: 285px;
+            max-height: 285px;
         }
     }
 }
@@ -143,6 +177,7 @@ footer{
     flex-direction: column;
     align-items: center;
     gap: 22px;
+    text-align: center;
     .footer_title{
         margin-top: 60px;
         font-family: Roboto;
@@ -199,12 +234,119 @@ footer{
     }
 }
 //Adaptive
-@media (max-width: 1200px) {
-    
+@media screen and (max-width: 1190px) {
+    //Header
+    .navbar{
+        margin: 20px auto;
+    }
+    .header_img{
+        margin: 0 auto;
+    }
+    //Recent posts
+    .our_posts_wrapper{
+        flex-direction: column;
+    }
+    //Instagram Shots
+    .instagram_title_wrapper{
+        max-width: 770px;
+    }
+    .instagram_posts_wrapper{
+        justify-content: center;
+        .instagram_post{
+            &_img{
+                width:250px;
+                height:250px;
+            }
+            &_img_4{
+                display: none;
+            }
+        }
+    }
 }
-@media (max-width: 768px) {
-    
+@media screen and (max-width: 790px) {
+    //Header
+    .header_bg_holder{
+        margin-top: 80px;
+    }
+    .burger_menu{
+        display: flex;
+        span.hidden{
+            display: none;
+        }
+        .line_cross_top.active{
+            margin-bottom: -9px;
+            transform: rotate(-45deg);
+        }
+        .line_cross_bottom.active{
+            transform: rotate(45deg);
+        }
+    }
+    .navbar{
+        display: none;
+		position: absolute;
+        top: -35px;
+        right: 0;
+        &_item{
+            padding: 5px 0;
+            z-index: 1;
+            width: 180px;
+            transition: 0.3s;
+        }
+        &_item:hover{
+            background-color: #E5E5E5;
+        }
+        &_item_link:focus{
+            color: #57A4A4;
+        }
+	}
+    .burger_menu.active + .navbar{
+        background: #F5F5F5;
+		display: flex;
+		z-index: 1;
+		flex-direction: column;
+		gap: 0;
+        .navbar_item_link{
+        padding-left: 15px;
+        }
+    }
+    //Instagram posts
+    .instagram_posts_wrapper{
+        .instagram_post{
+            &_img_3{
+                display: none;
+            }
+        }
+    }
 }
-@media (max-width: 320px) {
-    
+@media screen and (max-width:550px) {
+   .instagram_bg_holder{
+    display: block;
+    background: none;
+    .instagram_posts_wrapper{
+        padding-top: 0;
+        .instagram_title_wrapper{
+            .instagram_subtitle{
+                display: none;
+            }
+        }
+        .instagram_post{
+            &_img{
+                width: 300px;
+                height: 300px;
+            }
+            &_img_2{
+                display: none;
+            }
+        }
+    }
+   }
+    .post{
+        flex-direction: column;
+        .post_text_container{
+            padding: 0;
+        }
+        &_text{
+            display: none;        
+        }
+    }
 }
